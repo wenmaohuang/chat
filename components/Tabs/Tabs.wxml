@@ -1,0 +1,7 @@
+<!--components/Tabs/Tabs.wxml-->
+<text>这是组件</text>
+<view class="wrapper">
+  <slot name="before"></slot>
+  <view>This indicates the internal details of the component</view>
+  <slot name="after"></slot>
+</view>

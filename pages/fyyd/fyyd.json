@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Tabs":"../../components/Tabs/Tabs",
+    "Swiper":"../../components/Swiper/Swiper",
+    "ScrollView":"../../components/ScrollView/ScrollView",
+    "Swiper2": "../../components/Swiper2/Swiper2"
+  }
+}
