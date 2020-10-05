@@ -11,3 +11,5 @@ server.listen(port, hostname, () => {
   console.log('test')
 console.log(`服务器运行在 http://${hostname}:${port}/`);
 });
+
+console.log('this is a test file')
