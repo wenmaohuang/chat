@@ -15,15 +15,11 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/fyyd/fyyd",
-      "text": "FYYD",
-      "iconPath": "icon/1.jpg",
-      "selectedIconPath": "icon/1.jpg"
+      "text": "FYYD"
     },
     {
       "pagePath": "pages/home/home",
-      "text": "home",
-      "iconPath": "icon/2.jpg",
-      "selectedIconPath": "icon/2.jpg"
+      "text": "home"
     }
   ]
   },
