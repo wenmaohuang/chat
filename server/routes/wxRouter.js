@@ -14,8 +14,8 @@ const config = {
 // 给微信验证的
 const wxServer = new Router()
 wxServer.get('/', async ctx => {
-    const { signature, timestamp, nonce, echostr } = ctx.query
-    console.log(signature,timestamp, nonce, echostr,ctx,'nh')
+    const { signature, timestamp, nonce, echostr } = ctx.request.query
+    console.log(signature,timestamp, nonce, echostr,ctx.request.query.nonce,'nh')
 
     const token = config.wechat.token
     let hash = crypto.createHash('sha1')
