@@ -29,7 +29,7 @@ app.use(
 
 // 装载所有路由
 const router = new Router()
-router.use('/forWx', wxServer.routes(), wxServer.allowedMethods())
+router.use('/forwx', wxServer.routes(), wxServer.allowedMethods())
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods())
 app.listen(3005)
