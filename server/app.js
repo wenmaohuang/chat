@@ -3,7 +3,8 @@ const cors = require('koa2-cors')
 const Router = require('koa-router')
 const crypto = require('crypto')
 const wxServer = require('./routes/wxRouter')
-
+const staticFiles = require('koa-static')
+const path = require('path')
 
 const app = new Koa()
 
@@ -25,8 +26,8 @@ app.use(
     })
 )
 
-app.use(require( 'koa-static')(_dirname, 'public'));
-
+// app.use(require('koa-static')(__dirname, './public'));
+app.use(staticFiles(__dirname + '/public/'))
 console.log('public')
 
 // 装载所有路由
