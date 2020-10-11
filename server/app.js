@@ -27,7 +27,7 @@ app.use(
 
 app.use(require( 'koa-static')(_dirname, 'public'));
 
-
+console.log('public')
 
 // 装载所有路由
 const router = new Router()
