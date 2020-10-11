@@ -25,6 +25,8 @@ app.use(
     })
 )
 
+app.use(require( 'koa-static')(_dirname, 'public'));
+
 
 
 // 装载所有路由
