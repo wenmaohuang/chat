@@ -1,7 +1,0 @@
-<!--components/SearchInfo/SearchInfo.wxml-->
-<view class="section">
-
-  <web-view src="https://www.baidu.com">跳转A</web-view>
-<a href="https://www.baidu.com">百度一下</a>
-  <input bindinput="handleFetch" style='background-color:#fff;border:1px solid #111' placeholder="Auto focus is supported in this input" auto-focus/>
-</view>

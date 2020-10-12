@@ -14,7 +14,7 @@ app.use(
     cors({
         origin: ctx => {
             if (ctx.url === '/test') {
-                return false
+                return '*'
             }
             return '*'
         },
@@ -27,8 +27,11 @@ app.use(
 )
 
 // app.use(require('koa-static')(__dirname, './public'));
-app.use(staticFiles(__dirname + '/public'))
-console.log('public')
+// app.use(staticFiles(__dirname + '/public'))
+app.use(staticFiles(path.resolve(__dirname + './../client_gzh/dist')))
+
+
+console.log(path.resolve(__dirname +'./..' + '/client_gzh/dist'))
 console.log('public')
 
 // 装载所有路由
