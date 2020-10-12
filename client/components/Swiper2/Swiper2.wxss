@@ -1,0 +1,51 @@
+/* components/Swiper2/Swiper2.wxss */
+
+.titles {
+  height: 36px;
+  width: 750rpx;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-around;
+  }
+   
+  .title {
+  width: 180rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+   
+  .title-selected {
+  border-bottom: 2px solid red;
+  color: red;
+  }
+   
+  .page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90rpx;
+  color: white;
+  }
+   
+  .bc_Yellow {
+  background-color: yellow;
+  }
+   
+  .bc_Orange {
+  background-color: orange;
+  }
+   
+  .bc_Green {
+  background-color: green;
+  }
+   
+  .bc_Blue {
+  background-color: blue;
+  }
+   
+  .bc_Purple {
+  background-color: purple;
+  }

@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<!-- <text>home</text> -->
+<div>home</div>
+<!-- <image src="../../icon/2.jpg" mode="widthFix" bindtouchmove="touchMove"></image> -->

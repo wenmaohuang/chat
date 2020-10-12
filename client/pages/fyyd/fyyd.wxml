@@ -1,0 +1,25 @@
+<!--pages/fyyd/fyyd.wxml-->
+<!-- <text>fyyd</text> -->
+<!-- <image src="../../icon/1.jpg" bindtouchmove="touchMove" style="animation:{{pageAnimation}}">
+
+</image> -->
+
+<div style='display:flex;font-size:20px;background-color:#aaa;background-image:url(../../icon/1.jpg);background-size:cover;height:300px'>
+
+<SearchInfo></SearchInfo>
+</div>
+
+
+<!-- <view >
+	这是view
+</view> -->
+
+	<!-- <Tabs>
+	</Tabs> -->
+	<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">test</button> -->
+<!-- <Swiper></Swiper> -->
+
+<Swiper2></Swiper2>
+
+<!-- <ScrollView></ScrollView> -->
+<!-- <web-view src="https://www.baidu.com/"></web-view> -->

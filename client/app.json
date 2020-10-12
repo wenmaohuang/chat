@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/fyyd/fyyd",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/fyyd/fyyd",
+      "text": "FYYD"
+    },
+    {
+      "pagePath": "pages/home/home",
+      "text": "home"
+    }
+  ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

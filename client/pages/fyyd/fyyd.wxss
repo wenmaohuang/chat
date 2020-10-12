@@ -1,0 +1,13 @@
+/* pages/fyyd/fyyd.wxss
+image{
+  height:500px;
+  position:relative;
+	animation:mymove 5s;
+  }
+
+  @keyframes mymove
+{
+	  0% {opacity: 0;}  
+    50% {opacity: 0.5;}  
+    100% {opacity: 1;}  
+} */
