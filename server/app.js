@@ -6,6 +6,7 @@ const wxServer = require('./routes/wxRouter')
 const staticFiles = require('koa-static')
 const path = require('path')
 
+
 const app = new Koa()
 
 
@@ -14,9 +15,9 @@ app.use(
     cors({
         origin: ctx => {
             if (ctx.url === '/test') {
-                return '*'
+                return false
             }
-            return '*'
+            return ctx.headers.origin || '*'
         },
         exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
         maxAge: 5,
@@ -29,15 +30,20 @@ app.use(
 // app.use(require('koa-static')(__dirname, './public'));
 // app.use(staticFiles(__dirname + '/public'))
 app.use(staticFiles(path.resolve(__dirname + './../client_gzh/dist')))
-
-
 console.log(path.resolve(__dirname +'./..' + '/client_gzh/dist'))
 console.log('public')
 
+
+const router = require('./routes/wxRouter.js')
+
+app.use(router.routes())
+
+
+
 // 装载所有路由
-const router = new Router()
-router.use('/api/forwx', wxServer.routes(), wxServer.allowedMethods())
-// 加载路由中间件
-app.use(router.routes()).use(router.allowedMethods())
+// const router = new Router()
+// router.use('/forwx', wxServer.routes(), wxServer.allowedMethods())
+// // 加载路由中间件
+// app.use(router.routes()).use(router.allowedMethods())
 app.listen(3005)
 console.log('[demo] start-quick is starting at port 3005')
