@@ -97,7 +97,9 @@ const config = {
 router.get('/forwx',async ctx => {
     const { signature, timestamp, nonce, echostr } = ctx.query
 
-    console.log(signature,'ex')
+    console.log(ctx.query,'ex')
+
+
     const token = config.wechat.token
     let hash = crypto.createHash('sha1')
     const arr = [token, timestamp, nonce].sort()
