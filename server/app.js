@@ -34,10 +34,29 @@ console.log(path.resolve(__dirname +'./..' + '/client_gzh/dist'))
 console.log('public')
 
 
-const router = require('./routes/wxRouter.js')
+// const router = require('./routes/wxRouter.js')
 
-app.use(router.routes())
+// app.use(router.routes())
 
+const router = new Router();
+
+router.use(async ctx => {
+    const { signature, timestamp, nonce, echostr } = ctx.query
+
+    console.log(ctx.query,'ex')
+
+
+    const token = config.wechat.token
+    let hash = crypto.createHash('sha1')
+    const arr = [token, timestamp, nonce].sort()
+    hash.update(arr.join(''))
+    const shasum = hash.digest('hex')
+    if(shasum === signature){
+        return ctx.body = echostr
+    }
+    ctx.status = 401
+    ctx.body = 'Invalid signature'
+})
 
 
 
