@@ -3,13 +3,12 @@
 
 
 
-"""from handle import Handle
+from handle import Handle
 
 import web
 
 urls = (
-    '/wechat/g:q
-    :etConfig', 'Handle',
+    '/wechat/getConfig', 'Handle',
 )
 
 class Handle(object):
@@ -20,7 +19,9 @@ if __name__ == '__main__':
     app = web.application(urls, globals())
     app.run()
 
-    """
+
+
+"""
 print('add .')
 import falcon
 from falcon import uri
@@ -53,7 +54,7 @@ class Connect(object):
 app = falcon.API()
 connect = Connect()
 app.add_route('/wechat/getConfig', connect)
-
+"""
 
 
 
