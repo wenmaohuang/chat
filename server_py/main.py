@@ -1,5 +1,8 @@
-:# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # filename: main.py
+
+
+
 """from handle import Handle
 
 import web
@@ -18,7 +21,7 @@ if __name__ == '__main__':
     app.run()
 
     """
-
+print('add .')
 import falcon
 from falcon import uri
 from wechatpy.utils import check_signature
