@@ -133,7 +133,7 @@ const config = {
 const API = require('wechat-api')
 const api = new API(config.wxappid, config.wxappsecret)
 
-router.post('/forwx', async (ctx, next) => {
+router.post('/wechat/getConfig', async (ctx, next) => {
     // 使用wechat-api获取JSconfig
     var param = {
         debug: false,
@@ -177,6 +177,7 @@ router.post('/forwx', async (ctx, next) => {
             'updateTimelineShareData'],
         url: ctx.request.body.url
     }
+
 
 
     //生成config的参数
