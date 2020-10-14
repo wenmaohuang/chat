@@ -81,35 +81,109 @@
 //
 // module.exports = wxServer
 
+//
+// const Router = require('koa-router')
+// const router = new Router()
+// const crypto = require('crypto')
+//
+//
+// const config = {
+//     wechat: {
+//         appID: 'wx7c313875d0b2b98f',
+//         appsecret: 'c8bf6186a425d43e800e9f4d113a70ce',
+//         token: '1234',
+//     }
+// }
+// router.get('/forwx',async ctx => {
+//     const { signature, timestamp, nonce, echostr } = ctx.query
+//
+//     console.log(ctx.query,'ex')
+//
+//
+//     const token = config.wechat.token
+//     let hash = crypto.createHash('sha1')
+//     const arr = [token, timestamp, nonce].sort()
+//     hash.update(arr.join(''))
+//     const shasum = hash.digest('hex')
+//     if(shasum === signature){
+//         return ctx.body = echostr
+//     }
+//     ctx.status = 401
+//     ctx.body = 'Invalid signature'
+// })
+//
+// module.exports = router
 
-const Router = require('koa-router')
-const router = new Router()
-const crypto = require('crypto')
 
 
+const router = require('koa-router')()
+// 引入统一下单的api
+// const config = require('../module/config')
 const config = {
-    wechat: {
-        appID: 'wx7c313875d0b2b98f',
-        appsecret: 'c8bf6186a425d43e800e9f4d113a70ce',
-        token: '1234',
-    }
+    // mch_id: '153506xxxxx', //商户号（非支付可不填）
+    wxappid: 'wx7c313875d0b2b98f', //AppID
+    wxappsecret: 'c8bf6186a425d43e800e9f4d113a70ce', //AppSecret
+    // wxpaykey: 'c23fdgas768fdhASdsad1xxxxxxxx'  // 商户key（支付API密钥，非支付可不填）
 }
-router.get('/forwx',async ctx => {
-    const { signature, timestamp, nonce, echostr } = ctx.query
-
-    console.log(ctx.query,'ex')
 
 
-    const token = config.wechat.token
-    let hash = crypto.createHash('sha1')
-    const arr = [token, timestamp, nonce].sort()
-    hash.update(arr.join(''))
-    const shasum = hash.digest('hex')
-    if(shasum === signature){
-        return ctx.body = echostr
+
+
+// 用来生成签名、config的参数
+const API = require('wechat-api')
+const api = new API(config.wxappid, config.wxappsecret)
+
+router.post('/forwx', async (ctx, next) => {
+    // 使用wechat-api获取JSconfig
+    var param = {
+        debug: false,
+        jsApiList: ['checkJsApi',
+            // 'onMenuShareTimeline',
+            // 'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'onMenuShareQZone',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onVoiceRecordEnd',
+            'playVoice',
+            'onVoicePlayEnd',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard',
+            'updateAppMessageShareData',
+            'updateTimelineShareData'],
+        url: ctx.request.body.url
     }
-    ctx.status = 401
-    ctx.body = 'Invalid signature'
+
+
+    //生成config的参数
+    api.getJsConfig(param, function (err, data) {
+        //  console.log(err)
+        ctx.body = { 'success': 'true', 'data': data, 'code': '200' }
+    })
 })
 
 module.exports = router

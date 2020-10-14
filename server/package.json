@@ -16,6 +16,7 @@
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "wechat-api": "^1.35.1"
   }
 }
