@@ -34,37 +34,37 @@ console.log(path.resolve(__dirname +'./..' + '/client_gzh/dist'))
 console.log('public')
 
 
-// const router = require('./routes/wxRouter.js')
+const router = require('./routes/wxRouter.js')
 
-// app.use(router.routes())
+app.use(router.routes())
 
-const router = new Router();
-const config = {
-    wechat: {
-        appID: 'wx7c313875d0b2b98f',
-        appsecret: 'c8bf6186a425d43e800e9f4d113a70ce',
-        token: '1234',
-    }
-}
-
-
-router.use(async ctx => {
-    const { signature, timestamp, nonce, echostr } = ctx.query
-
-    console.log(ctx.query,'ex')
-
-
-    const token = config.wechat.token
-    let hash = crypto.createHash('sha1')
-    const arr = [token, timestamp, nonce].sort()
-    hash.update(arr.join(''))
-    const shasum = hash.digest('hex')
-    if(shasum === signature){
-        return ctx.body = echostr
-    }
-    ctx.status = 401
-    ctx.body = 'Invalid signature'
-})
+// const router = new Router();
+// const config = {
+//     wechat: {
+//         appID: 'wx7c313875d0b2b98f',
+//         appsecret: 'c8bf6186a425d43e800e9f4d113a70ce',
+//         token: '1234',
+//     }
+// }
+//
+//
+// router.use(async ctx => {
+//     const { signature, timestamp, nonce, echostr } = ctx.query
+//
+//     console.log(ctx.query,'ex')
+//
+//
+//     const token = config.wechat.token
+//     let hash = crypto.createHash('sha1')
+//     const arr = [token, timestamp, nonce].sort()
+//     hash.update(arr.join(''))
+//     const shasum = hash.digest('hex')
+//     if(shasum === signature){
+//         return ctx.body = echostr
+//     }
+//     ctx.status = 401
+//     ctx.body = 'Invalid signature'
+// })
 
 
 
