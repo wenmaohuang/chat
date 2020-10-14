@@ -9,4 +9,18 @@ console.log(process.env)
 axios.defaults.withCredentials = true
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
+
+
+// export default {
+//   getForwx(){
+//     // console.log(333);
+//     return axios.get('/forwx/')
+//   },
+//
+//
+//
+//
+// }
+
+
 export default axios

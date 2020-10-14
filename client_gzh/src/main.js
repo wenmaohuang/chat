@@ -6,8 +6,10 @@ import router from './router'
 import axios from '../api/index.js'
 
 
-axios.defaults.baseURL = '/api'  //关
+// axios.defaults.baseURL = '/api'
 Vue.prototype.$http = axios
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
