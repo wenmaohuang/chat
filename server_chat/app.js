@@ -3,7 +3,7 @@ const path = require('path')
 const auth = require('./weChat/auth')
 
 const app = express()
-app.use(express.static(path.join(__dirname, './chat')))
+app.use(express.static(path.join(__dirname, './public')))
 
 app.use(auth())
 
