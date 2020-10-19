@@ -12,7 +12,7 @@ var token = "1234"
 
 /* GET home page. */
 
-router.get('/wechat/getConfig', function(req, res, next) {
+router.get('/chat', function(req, res, next) {
 
     console.log();
 
@@ -43,6 +43,7 @@ router.get('/wechat/getConfig', function(req, res, next) {
     var code = sha1Code.update(str,'utf-8').digest("hex");
 
     //3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
+    console.log(code,'code')
 
     if(code===signature){
 
@@ -62,7 +63,7 @@ router.get('/wechat/getConfig', function(req, res, next) {
 
  */
 
-router.post('/getsignature', function(req, res, next) {
+router.post('/signature', function(req, res, next) {
 
     let hrefURL = req.body.urlhref;
 
