@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-#
 # filename: receive.py
+"""
+
 import xml.etree.ElementTree as ET
 
 
@@ -12,7 +14,6 @@ def parse_xml(web_data):
         return TextMsg(xmlData)
     elif msg_type == 'image':
         return ImageMsg(xmlData)
-
 
 class Msg(object):
     def __init__(self, xmlData):
@@ -34,3 +35,7 @@ class ImageMsg(Msg):
         Msg.__init__(self, xmlData)
         self.PicUrl = xmlData.find('PicUrl').text
         self.MediaId = xmlData.find('MediaId').text
+
+
+        """
+

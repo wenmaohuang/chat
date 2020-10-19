@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # filename: main.py
 
-
+"""
 
 from handle import Handle
 
@@ -18,7 +18,7 @@ class Handle(object):
 if __name__ == '__main__':
     app = web.application(urls, globals())
     app.run()
-
+"""
 
 
 """
@@ -58,3 +58,28 @@ app.add_route('/wechat/getConfig', connect)
 
 
 
+
+WECHAT_TOKEN = "1234"
+from flask import Flash,request,abort
+import hashlib
+app = Flash(__name__)
+@app.route("/wechat8000")
+def wechat():
+    signature = request.args.get("signature")
+    timestamp = request.args.get("timestamp")
+    nonce = request.args.get("nonce")
+    echostr = request.args.get("echostr")
+    if not all ([signature,timestamp,nonce,echostr]):
+        abort(400)
+    li = [WECHAT_TOKEN,timestamp,nonce]
+    li.sort()
+    tem_str = "".join(li)
+    sign = hashlib.sha1(tem_str).hexdigest()
+    if signature != sign:
+        abort(403)
+    else:
+        return echostr
+
+
+if __name__ == '__main__':
+    app.run(port=8000,debug=True)
