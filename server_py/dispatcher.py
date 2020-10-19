@@ -78,24 +78,24 @@ class MsgHandler(object):
      try:
       response = get_response_by_keyword(self.msg.content)
       if response['type'] == "image":
-      result = self.imageHandle(self.msg.user, self.msg.master, self.time, response['content'])
+        result = self.imageHandle(self.msg.user, self.msg.master, self.time, response['content'])
       elif response['type'] == "music":
-      data = response['content']
-      result = self.musicHandle(data['title'], data['description'], data['url'], data['hqurl'])
+          data = response['content']
+          result = self.musicHandle(data['title'], data['description'], data['url'], data['hqurl'])
       elif response['type'] == "news":
-      items = response['content']
-      result = self.newsHandle(items)
+          items = response['content']
+          result = self.newsHandle(items)
       # 这里还可以添加更多的拓展内容
       else:
-      response = get_turing_response(self.msg.content)
-      result = template.format(self.msg.user, self.msg.master, self.time, response)
-      #with open("./debug.log", 'a') as f:
-      # f.write(response['content'] + '~~' + result)
-      # f.close()
+          response = get_turing_response(self.msg.content)
+          result = template.format(self.msg.user, self.msg.master, self.time, response)
+          #with open("./debug.log", 'a') as f:
+          # f.write(response['content'] + '~~' + result)
+          # f.close()
      except Exception as e:
       with open("./debug.log", 'a') as f:
-      f.write("text handler:"+str(e.message))
-      f.close()
+          f.write("text handler:"+str(e.message))
+          f.close()
      return result
  def musicHandle(self, title='', description='', url='', hqurl=''):
      template = """
