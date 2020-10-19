@@ -31,7 +31,7 @@ class MsgParser(object):
      self.event = self.et.find("Event").text if self.et.find("Event") is not None else ""
  return self
 class MsgDispatcher(object):
- """
+ """`
  根据消息的类型，获取不同的处理返回值
  """
  def __init__(self, data):

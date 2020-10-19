@@ -58,14 +58,14 @@ app.add_route('/wechat/getConfig', connect)
 
 
 
-"""
+
 WECHAT_TOKEN = "1234"
 from flask import Flask,request,abort
 import hashlib
 import xmltodict
 import time
 app = Flask(__name__)
-@app.route("/",methods = ["GET","POST"])
+@app.route("/chat",methods = ["GET","POST"])
 def wechat():
     signature = request.args.get("signature")
     timestamp = request.args.get("timestamp")
@@ -115,10 +115,10 @@ def wechat():
             return resp_xml_str
 if __name__ == '__main__':
     app.run(port=3005,debug=True)
+
+
+
 """
-
-
-
 # -*- coding:utf-8 -*-    #中文编码
 import sys
 #reload(sys) # 不加这部分处理中文还是会出问题
@@ -163,3 +163,4 @@ def wechat_auth(): # 处理微信请求的处理函数，get方法用于认证�
  return response
 if __name__ == '__main__':
  app.run(host="0.0.0.0", port=3005)
+ """
