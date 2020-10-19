@@ -60,7 +60,7 @@ app.add_route('/wechat/getConfig', connect)
 
 
 WECHAT_TOKEN = "1234"
-from flask import Flash,request,abort
+from flask import Flask,request,abort
 import hashlib
 app = Flash(__name__)
 @app.route("/wechat8000")
