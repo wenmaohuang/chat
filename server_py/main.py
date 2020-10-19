@@ -8,7 +8,7 @@ from handle import Handle
 import web
 
 urls = (
-    '/wechat/getConfig', 'Handle',
+    '/chat', 'Handle',
 )
 
 class Handle(object):
