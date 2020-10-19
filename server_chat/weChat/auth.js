@@ -27,7 +27,7 @@ module.exports = () => {
             if (sha1Str === signature) {
                 res.send(echostr)
             } else {
-                res.end('error')
+                res.end('get error')
             }
 
 
