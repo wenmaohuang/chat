@@ -62,7 +62,7 @@ app.add_route('/wechat/getConfig', connect)
 WECHAT_TOKEN = "1234"
 from flask import Flask,request,abort
 import hashlib
-app = Flash(__name__)
+app = Flask(__name__)
 @app.route("/wechat8000")
 def wechat():
     signature = request.args.get("signature")
