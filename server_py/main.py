@@ -8,7 +8,7 @@ from handle import Handle
 import web
 
 urls = (
-    '/chat', 'Handle',
+    '/', 'Handle',
 )
 
 class Handle(object):
