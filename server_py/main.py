@@ -79,12 +79,12 @@ def wechat():
     if signature != sign:
         abort(403)
     else:
-        if request.method = "GET":
+        if request.method == "GET":
             echostr = request.args.get("echostr")
             if not echostr:
                 abort(400)
             return echostr
-        elif request.method = "POST":
+        elif request.method == "POST":
             xml_str = request.data
             if not xml_str:
                 abort(400)
