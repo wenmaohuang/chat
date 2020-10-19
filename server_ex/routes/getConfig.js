@@ -12,7 +12,7 @@ var token = "1234"
 
 /* GET home page. */
 
-router.get('/chat', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
     console.log();
 
