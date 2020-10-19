@@ -12,7 +12,7 @@ var token = "1234"
 
 /* GET home page. */
 
-router.get('/', function(req, res, next) {
+router.get('/chat', function(req, res, next) {
 
     console.log();
 
@@ -63,7 +63,7 @@ router.get('/', function(req, res, next) {
 
  */
 
-router.post('/', function(req, res, next) {
+router.post('/chat', function(req, res, next) {
 
     let hrefURL = req.body.urlhref;
 
