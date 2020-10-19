@@ -24,7 +24,7 @@ router.get('/chat', function(req, res, next) {
 
     var echostr = req.query.echostr;
 
-    console.log(signature, timestamp, nonce, echostr);
+    console.log(signature,'aaa', timestamp,'bbb', nonce, echostr);
 
     /* 加密/校验流程如下： */
 
