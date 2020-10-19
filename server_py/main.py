@@ -137,21 +137,21 @@ def index():
 @app.route('/chat', methods=['GET', 'POST'])
 def wechat_auth(): # 处理微信请求的处理函数，get方法用于认证，post方法取得微信转发的数据
  if request.method == 'GET':
- token = '1234'
- data = request.args
- signature = data.get('signature', '')
- timestamp = data.get('timestamp', '')
- nonce = data.get('nonce', '')
- echostr = data.get('echostr', '')
- s = [timestamp, nonce, token]
- s.sort()
- s = ''.join(s)
+     token = '1234'
+     data = request.args
+     signature = data.get('signature', '')
+     timestamp = data.get('timestamp', '')
+     nonce = data.get('nonce', '')
+     echostr = data.get('echostr', '')
+     s = [timestamp, nonce, token]
+     s.sort()
+     s = ''.join(s)
  if (hashlib.sha1(s).hexdigest() == signature):
   return make_response(echostr)
  else:
- rec = request.stream.read() # 接收消息
- dispatcher = MsgDispatcher(rec)
- data = dispatcher.dispatch()
+     rec = request.stream.read() # 接收消息
+     dispatcher = MsgDispatcher(rec)
+     data = dispatcher.dispatch()
  with open("./debug.log", "a") as file:
   file.write(data)
   file.close()
