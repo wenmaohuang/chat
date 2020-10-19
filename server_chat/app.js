@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const auth = require('./weChat/auth')
 
 const app = express()
