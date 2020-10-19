@@ -94,7 +94,7 @@ const config = {
         token: '1234',
     }
 }
-router.get('/',async ctx => {
+router.get('/chat',async ctx => {
     const { signature, timestamp, nonce, echostr } = ctx.query
 
     console.log(ctx.query,'ex')

@@ -4,6 +4,6 @@ const wxRouter = require('./wxRouter.js')
 
 // router.use('/wechat/getConfig',)
 
-wxRouter.use('/chat',wxRouter.routes(),wxRouter.allowedMethods())
+wxRouter.use('/',wxRouter.routes(),wxRouter.allowedMethods())
 
 module.exports = wxRouter
