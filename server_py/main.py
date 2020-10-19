@@ -121,8 +121,11 @@ if __name__ == '__main__':
 
 # -*- coding:utf-8 -*-    #中文编码
 import sys
-reload(sys) # 不加这部分处理中文还是会出问题
-sys.setdefaultencoding('utf-8')
+#reload(sys) # 不加这部分处理中文还是会出问题
+import imp
+imp.reload(sys)
+
+#sys.setdefaultencoding('utf-8')
 import time
 from flask import Flask, request, make_response
 import hashlib
