@@ -63,7 +63,7 @@ router.get('/', function(req, res, next) {
 
  */
 
-router.post('/signature', function(req, res, next) {
+router.post('/chat', function(req, res, next) {
 
     let hrefURL = req.body.urlhref;
 
