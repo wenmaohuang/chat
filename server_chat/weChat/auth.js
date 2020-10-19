@@ -23,6 +23,7 @@ module.exports = () => {
 
 
         if (req.method === 'GET') {
+            console.log(sha1Str,signature)
 
             if (sha1Str === signature) {
                 res.send(echostr)
