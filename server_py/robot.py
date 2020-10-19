@@ -8,9 +8,9 @@ def get_turing_response(req=""):
  response = requests.post(url=url, json={"key": secretcode, "info": req, "userid": 12345678})
  return json.loads(response.text)['text'] if response.status_code == 200 else ""
 def get_qingyunke_response(req=""):
- url = "http://api.qingyunke.com/api.php?key=free&appid=0&msg={}".format(req)
- response = requests.get(url=url)
- return json.loads(response.text)['content'] if response.status_code == 200 else ""
+     url = "http://api.qingyunke.com/api.php?key=free&appid=0&msg={}".format(req)
+     response = requests.get(url=url)
+    return json.loads(response.text)['content'] if response.status_code == 200 else ""
 # 简单做下。后面慢慢来
 def get_response_by_keyword(keyword):
  if '团建' in keyword:
@@ -25,5 +25,5 @@ def get_response_by_keyword(keyword):
        ]
      result = {"type": "news", "content": items}
  else:
-    result = {"type": "text", "content": "可以自由进行拓展"}
- return result
+        result = {"type": "text", "content": "可以自由进行拓展"}
+    return result

@@ -56,7 +56,7 @@ class MsgDispatcher(object):
       self.result = self.handler.linkHandle()
      elif self.msg.msgtype == 'event':
       self.result = self.handler.eventHandle()
-     return self.result
+    return self.result
 class MsgHandler(object):
  """
  针对type不同，转交给不同的处理函数。直接处理即可
@@ -114,11 +114,11 @@ class MsgHandler(object):
      </xml>
      """
      response = template.format(self.msg.user, self.msg.master, self.time, title, description, url, hqurl)
-     return response
+    return response
  def voiceHandle(self):
      response = get_turing_response(self.msg.recognition)
      result = self.textHandle(self.msg.user, self.msg.master, self.time, response)
-     return result
+    return result
  def imageHandle(self, user='', master='', time='', mediaid=''):
      template = """
      <xml>
@@ -136,7 +136,7 @@ class MsgHandler(object):
      else:
       response = mediaid
      result = template.format(self.msg.user, self.msg.master, self.time, response)
-     return result
+    return result
  def videoHandle(self):
     return 'video'
  def shortVideoHandle(self):
@@ -171,4 +171,4 @@ class MsgHandler(object):
      </xml>
      """
      result = template.format(self.msg.user, self.msg.master, self.time, len(items), itemstr)
-     return result
+    return result
