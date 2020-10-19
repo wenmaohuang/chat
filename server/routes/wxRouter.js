@@ -90,11 +90,11 @@ const crypto = require('crypto')
 const config = {
     wechat: {
         appID: 'wx7c313875d0b2b98f',
-        appsecret: 'c8bf6186a425d43e800e9f4d113a70ce',
+        appsecret: '8f6d13749d57ab0e10c603cf49b36bbe',
         token: '1234',
     }
 }
-router.get('/wechat/getConfig',async ctx => {
+router.get('/',async ctx => {
     const { signature, timestamp, nonce, echostr } = ctx.query
 
     console.log(ctx.query,'ex')

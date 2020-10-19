@@ -32,11 +32,14 @@ app.use(
 app.use(staticFiles(path.resolve(__dirname + './../client_gzh/dist')))
 console.log(path.resolve(__dirname +'./..' + '/client_gzh/dist'))
 console.log('public')
+app.use(staticFiles(path.resolve(__dirname + 'public')))
 
 
-const router = require('./routes/wxRouter.js')
+const wxRouter = require('./routes/index.js')
+// const router = new Router()
+wxRouter.use('/',wxRouter.routes(),wxRouter.allowedMethods())
 
-app.use(router.routes())
+app.use(wxRouter.routes(),wxRouter.allowedMethods())
 
 // const router = new Router();
 // const config = {
