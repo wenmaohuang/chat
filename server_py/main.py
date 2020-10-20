@@ -65,6 +65,8 @@ import hashlib
 import xmltodict
 import time
 app = Flask(__name__)
+print(app.instance_path,'bb')
+
 @app.route("/chat",methods = ["GET","POST"])
 def wechat():
     signature = request.args.get("signature")
