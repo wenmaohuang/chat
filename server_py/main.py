@@ -64,7 +64,10 @@ from flask import Flask,request,abort
 import hashlib
 import xmltodict
 import time
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder='static'
+)
+
 print(app.instance_path,'bb')
 
 @app.route("/chat",methods = ["GET","POST"])
