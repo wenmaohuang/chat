@@ -58,7 +58,7 @@ app.add_route('/wechat/getConfig', connect)
 
 
 
-
+from gevent import pywsgi
 WECHAT_TOKEN = "1234"
 from flask import Flask,request,abort
 import hashlib
@@ -70,6 +70,7 @@ def wechat():
     signature = request.args.get("signature")
     timestamp = request.args.get("timestamp")
     nonce = request.args.get("nonce")
+    print(nonce,'aaa')
     if not all ([signature,timestamp,nonce]):
         abort(400)
     li = [WECHAT_TOKEN,timestamp,nonce]
@@ -86,11 +87,15 @@ def wechat():
             return echostr
         elif request.method == "POST":
             xml_str = request.data
+            print(xml_str)
             if not xml_str:
                 abort(400)
             xml_dict = xmltodict.pasre(xml_str)
             xml_dict = xml_dict.get("xml")
             msg_type = xml_dict.get("MsgType")
+            print(msg_type)
+
+
             if msg_type == "text":
                 resp_dict = {
                 "xml":{
@@ -115,7 +120,8 @@ def wechat():
             return resp_xml_str
 if __name__ == '__main__':
     app.run(port=3005,debug=True)
-
+    #server = pywsgi.WSGIServer(('0.0.0.0',3005),app)
+    #server.serveOA_forever()
 
 
 """
